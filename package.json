@@ -1,0 +1,39 @@
+{
+  "name": "bodenova-books-worker",
+  "version": "1.0.0",
+  "description": "Bodenova Bücher-Verkaufs-Pipeline auf Railway (ersetzt n8n)",
+  "private": true,
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "worker:vision": "node src/workers/vision-worker.js",
+    "worker:consolidator": "node src/workers/consolidator.js",
+    "worker:pricing": "node src/workers/pricing.js",
+    "worker:listing": "node src/workers/listing.js",
+    "worker:crossdelist": "node src/workers/cross-delist.js",
+    "script:import-drive": "node scripts/import-all-drive-photos.js",
+    "script:dedupe": "node scripts/deduplicate.js",
+    "script:test-photo": "node scripts/test-single-photo.js"
+  },
+  "dependencies": {
+    "airtable": "^0.12.2",
+    "googleapis": "^140.0.0",
+    "openai": "^4.60.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "helmet": "^7.1.0",
+    "cors": "^2.8.5",
+    "morgan": "^1.10.0",
+    "node-cron": "^3.0.3",
+    "pino": "^9.4.0",
+    "pino-http": "^10.3.0",
+    "csv-writer": "^1.6.0",
+    "nodemailer": "^6.9.15",
+    "p-retry": "^5.1.2",
+    "p-limit": "^5.0.0"
+  }
+}
